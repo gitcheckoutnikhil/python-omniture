@@ -12,6 +12,10 @@ class Value(object):
     """ Searchable Dict. Can search on both the key and the value """
     def __init__(self, title, id, parent, extra={}):
         self.log = logging.getLogger(__name__)
+        try:
+            self.title = str(title)
+        except:
+            self.title = str((title).encode('utf-8'))
         self.title = str(title)
         self.id = id
         self.parent = parent
